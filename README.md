@@ -1,1 +1,1 @@
-# OSSU---Simple-Data
+# OSSU - Simple-Data
