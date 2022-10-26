@@ -3,4 +3,6 @@
 #reader(lib "htdp-beginner-reader.ss" "lang")((modname simpler-example) (read-case-sensitive #t) (teachpacks ()) (htdp-settings #(#t constructor repeating-decimal #f #t none #f () #f)))
 ;; another example
 
-(cond [(> 1 2) "bigger"])
+(cond [(> 1 2) "bigger"]
+     [(= 1 2) "equal"]
+[(< 1 2) "smaller"] )
