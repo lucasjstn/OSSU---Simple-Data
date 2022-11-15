@@ -1,0 +1,39 @@
+;; The first three lines of this file were inserted by DrRacket. They record metadata
+;; about the language level of this file in a form that our tools can easily process.
+#reader(lib "htdp-beginner-reader.ss" "lang")((modname start-self-ref) (read-case-sensitive #t) (teachpacks ()) (htdp-settings #(#t constructor repeating-decimal #f #t none #f () #f)))
+(require 2htdp/image)
+
+empty ;;an empty list of any type of value
+
+;(cons "Flames" empty) ;a list of one element
+(cons "Leafs" (cons "Flames" empty)) ;a list of two elements
+(cons (string-append "C" "anucks") empty) ; expressions that not produces lists can be formed out of non-value expression
+(cons 10 (cons 9 (cons 10 empty))) ; list of three elements
+#;
+(cons (square 10 "solid" "blue")
+      (cons (triangle 20 "solid" "green") ;cons can be used to produce lists with more than one data
+            empty))
+
+(define L1 (cons "Flames" empty)) ;a list of one element
+(define L2 (cons 10 (cons 9 (cons 10 empty))))
+(define L3 (cons (square 10 "solid" "blue")
+      (cons (triangle 20 "solid" "green")
+            empty)))
+
+(first L1) ;consumes a list with at least one element and produces the first element of the list
+(first L2)
+(first L3)
+
+(rest L1) ;rest consumes a list with at least one element and produces the list after the first element
+(rest L2)
+(rest L3)
+#;
+(... L2) ;how do I get the second element of L2
+(first (rest L2))
+(first (rest (rest L2))); how to get the Third element
+
+;cons a two argument constructor
+;first selects the first element of a list
+;rest selects the elements after the list
+;empty? produces true if argument is the empty list
+(empty? empty)
