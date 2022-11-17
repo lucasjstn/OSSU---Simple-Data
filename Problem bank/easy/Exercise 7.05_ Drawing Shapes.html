@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<!-- saved from url=(0032)http://127.0.0.1:5500/index.html -->
+<html lang="en"><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+    <style>
+      canvas {
+        border: 1px solid gray;
+      }
+    </style>
+    <title>Exercise 7.05: Drawing Shapes</title>
+  </head>
+  <body class="vsc-initialized">
+    <canvas width="320" height="240" id="canvasArea"></canvas>
+    <script>
+      function drawSky(context) {
+        context.fillStyle = "#030339";
+        context.fillRect(0, 0, canvasElement.width, canvasElement.height);
+      }
+
+      function drawIgloo(context) {
+        context.fillStyle = "white";
+        context.arc(120, 160, 60, 0, Math.PI * 2, false);
+        context.fill();
+        context.fillRect(160, 135, 30, 50); //igloo door
+        context.strokeStyle = "#cffcff";
+        context.lineWidth = 4;
+        context.fillStyle = "#030339";
+        context.beginPath();
+        context.arc(194, 160, 23, 0, Math.PI * 2, false);
+        context.fill();
+        context.stroke;
+      }
+
+      function drawFrame(context) {
+        context.clearRect(0, 0, canvasElement.width, canvasElement.height);
+        drawSky(context);
+        drawIgloo(context);
+      }
+
+      const canvasElement = document.getElementById("canvasArea");
+      if (canvasElement.getContext) {
+        const context = canvasElement.getContext("2d");
+        drawFrame(context);
+      }
+    </script>
+  <!-- Code injected by live-server -->
+<script>
+	// <![CDATA[  <-- For SVG support
+	if ('WebSocket' in window) {
+		(function () {
+			function refreshCSS() {
+				var sheets = [].slice.call(document.getElementsByTagName("link"));
+				var head = document.getElementsByTagName("head")[0];
+				for (var i = 0; i < sheets.length; ++i) {
+					var elem = sheets[i];
+					var parent = elem.parentElement || head;
+					parent.removeChild(elem);
+					var rel = elem.rel;
+					if (elem.href && typeof rel != "string" || rel.length == 0 || rel.toLowerCase() == "stylesheet") {
+						var url = elem.href.replace(/(&|\?)_cacheOverride=\d+/, '');
+						elem.href = url + (url.indexOf('?') >= 0 ? '&' : '?') + '_cacheOverride=' + (new Date().valueOf());
+					}
+					parent.appendChild(elem);
+				}
+			}
+			var protocol = window.location.protocol === 'http:' ? 'ws://' : 'wss://';
+			var address = protocol + window.location.host + window.location.pathname + '/ws';
+			var socket = new WebSocket(address);
+			socket.onmessage = function (msg) {
+				if (msg.data == 'reload') window.location.reload();
+				else if (msg.data == 'refreshcss') refreshCSS();
+			};
+			if (sessionStorage && !sessionStorage.getItem('IsThisFirstTime_Log_From_LiveServer')) {
+				console.log('Live reload enabled.');
+				sessionStorage.setItem('IsThisFirstTime_Log_From_LiveServer', true);
+			}
+		})();
+	}
+	else {
+		console.error('Upgrade your browser. This Browser is NOT supported WebSocket for Live-Reloading.');
+	}
+	// ]]>
+</script>
+
+
+<style>.tb_button {padding:1px;cursor:pointer;border-right: 1px solid #8b8b8b;border-left: 1px solid #FFF;border-bottom: 1px solid #fff;}.tb_button.hover {borer:2px outset #def; background-color: #f8f8f8 !important;}.ws_toolbar {z-index:100000} .ws_toolbar .ws_tb_btn {cursor:pointer;border:1px solid #555;padding:3px}   .tb_highlight{background-color:yellow} .tb_hide {visibility:hidden} .ws_toolbar img {padding:2px;margin:0px}</style></body></html>
