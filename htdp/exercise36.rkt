@@ -1,0 +1,15 @@
+;; The first three lines of this file were inserted by DrRacket. They record metadata
+;; about the language level of this file in a form that our tools can easily process.
+#reader(lib "htdp-beginner-reader.ss" "lang")((modname exercise36) (read-case-sensitive #t) (teachpacks ()) (htdp-settings #(#t constructor repeating-decimal #f #t none #f () #f)))
+(require 2htdp/image)
+
+;We will use numbers to represent the quantity of pixels
+; Image -> Number
+
+;(define (image-area i) 0)
+(check-expect (image-area (rectangle 200 100 "solid" "blue")) (* 200 100))
+(check-expect (image-area (square 300 "solid" "blue")) (sqr 300))
+
+(define (image-area i)
+  (* (image-width i) (image-height i)))
+
